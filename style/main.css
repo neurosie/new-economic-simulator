@@ -1,0 +1,4670 @@
+@font-face {
+  font-family: Numbers;
+  src: url(fonts/clearsans.ttf); }
+html, body {
+  margin: 0;
+  padding: 0; }
+
+.board-wrapper {
+  background: white;
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+  position: relative;
+  padding: 5px;
+  border-radius: 4px;
+  width: 500px;
+  height: 500px;
+  box-sizing: border-box; }
+  .board-wrapper .board-row {
+    margin-bottom: 5px; }
+    .board-wrapper .board-row:last-child {
+      margin-bottom: 0; }
+    .board-wrapper .board-row:after {
+      content: "";
+      display: block;
+      clear: both; }
+  .board-wrapper .board-cell {
+    width: 24.11765px;
+    height: 24.11765px;
+    margin-right: 5px;
+    float: left;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 24.11765px;
+    color: white;
+    border-radius: 2px;
+    font-size: 15px;
+    font-family: Helvetica;
+    font-weight: bold; }
+    .board-wrapper .board-cell:last-child {
+      margin-right: 0; }
+    .board-wrapper .board-cell.positive.value-1 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-1 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-2 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-2 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-3 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-3 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-4 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-4 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-5 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-5 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-6 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-6 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-7 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-7 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-8 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-8 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-9 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-9 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-10 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-10 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-11 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-11 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.positive.value-12 {
+      background: #5cb85c; }
+    .board-wrapper .board-cell.negative.value-12 {
+      background: #d9534f; }
+    .board-wrapper .board-cell.zero {
+      background: rgba(0, 0, 0, 0.1);
+      color: black; }
+
+.board-container {
+  position: absolute;
+  z-index: 1; }
+
+.country-container {
+  position: absolute;
+  z-index: 2; }
+
+.country {
+  position: absolute;
+  border-radius: 2px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  -webkit-transition: 500ms ease-in-out;
+  -moz-transition: 500ms ease-in-out;
+  transition: 500ms ease-in-out;
+  -webkit-transition-property: transform;
+  -moz-transition-property: transform;
+  transition-property: transform; }
+  .country.country-position-1-1 {
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px); }
+  .country.country-position-1-2 {
+    -webkit-transform: translate(0px, 29px);
+    -moz-transform: translate(0px, 29px);
+    -ms-transform: translate(0px, 29px);
+    transform: translate(0px, 29px); }
+  .country.country-position-1-3 {
+    -webkit-transform: translate(0px, 58px);
+    -moz-transform: translate(0px, 58px);
+    -ms-transform: translate(0px, 58px);
+    transform: translate(0px, 58px); }
+  .country.country-position-1-4 {
+    -webkit-transform: translate(0px, 87px);
+    -moz-transform: translate(0px, 87px);
+    -ms-transform: translate(0px, 87px);
+    transform: translate(0px, 87px); }
+  .country.country-position-1-5 {
+    -webkit-transform: translate(0px, 116px);
+    -moz-transform: translate(0px, 116px);
+    -ms-transform: translate(0px, 116px);
+    transform: translate(0px, 116px); }
+  .country.country-position-1-6 {
+    -webkit-transform: translate(0px, 145px);
+    -moz-transform: translate(0px, 145px);
+    -ms-transform: translate(0px, 145px);
+    transform: translate(0px, 145px); }
+  .country.country-position-1-7 {
+    -webkit-transform: translate(0px, 174px);
+    -moz-transform: translate(0px, 174px);
+    -ms-transform: translate(0px, 174px);
+    transform: translate(0px, 174px); }
+  .country.country-position-1-8 {
+    -webkit-transform: translate(0px, 203px);
+    -moz-transform: translate(0px, 203px);
+    -ms-transform: translate(0px, 203px);
+    transform: translate(0px, 203px); }
+  .country.country-position-1-9 {
+    -webkit-transform: translate(0px, 232px);
+    -moz-transform: translate(0px, 232px);
+    -ms-transform: translate(0px, 232px);
+    transform: translate(0px, 232px); }
+  .country.country-position-1-10 {
+    -webkit-transform: translate(0px, 262px);
+    -moz-transform: translate(0px, 262px);
+    -ms-transform: translate(0px, 262px);
+    transform: translate(0px, 262px); }
+  .country.country-position-1-11 {
+    -webkit-transform: translate(0px, 291px);
+    -moz-transform: translate(0px, 291px);
+    -ms-transform: translate(0px, 291px);
+    transform: translate(0px, 291px); }
+  .country.country-position-1-12 {
+    -webkit-transform: translate(0px, 320px);
+    -moz-transform: translate(0px, 320px);
+    -ms-transform: translate(0px, 320px);
+    transform: translate(0px, 320px); }
+  .country.country-position-1-13 {
+    -webkit-transform: translate(0px, 349px);
+    -moz-transform: translate(0px, 349px);
+    -ms-transform: translate(0px, 349px);
+    transform: translate(0px, 349px); }
+  .country.country-position-1-14 {
+    -webkit-transform: translate(0px, 378px);
+    -moz-transform: translate(0px, 378px);
+    -ms-transform: translate(0px, 378px);
+    transform: translate(0px, 378px); }
+  .country.country-position-1-15 {
+    -webkit-transform: translate(0px, 407px);
+    -moz-transform: translate(0px, 407px);
+    -ms-transform: translate(0px, 407px);
+    transform: translate(0px, 407px); }
+  .country.country-position-1-16 {
+    -webkit-transform: translate(0px, 436px);
+    -moz-transform: translate(0px, 436px);
+    -ms-transform: translate(0px, 436px);
+    transform: translate(0px, 436px); }
+  .country.country-position-1-17 {
+    -webkit-transform: translate(0px, 465px);
+    -moz-transform: translate(0px, 465px);
+    -ms-transform: translate(0px, 465px);
+    transform: translate(0px, 465px); }
+  .country.country-position-2-1 {
+    -webkit-transform: translate(29px, 0px);
+    -moz-transform: translate(29px, 0px);
+    -ms-transform: translate(29px, 0px);
+    transform: translate(29px, 0px); }
+  .country.country-position-2-2 {
+    -webkit-transform: translate(29px, 29px);
+    -moz-transform: translate(29px, 29px);
+    -ms-transform: translate(29px, 29px);
+    transform: translate(29px, 29px); }
+  .country.country-position-2-3 {
+    -webkit-transform: translate(29px, 58px);
+    -moz-transform: translate(29px, 58px);
+    -ms-transform: translate(29px, 58px);
+    transform: translate(29px, 58px); }
+  .country.country-position-2-4 {
+    -webkit-transform: translate(29px, 87px);
+    -moz-transform: translate(29px, 87px);
+    -ms-transform: translate(29px, 87px);
+    transform: translate(29px, 87px); }
+  .country.country-position-2-5 {
+    -webkit-transform: translate(29px, 116px);
+    -moz-transform: translate(29px, 116px);
+    -ms-transform: translate(29px, 116px);
+    transform: translate(29px, 116px); }
+  .country.country-position-2-6 {
+    -webkit-transform: translate(29px, 145px);
+    -moz-transform: translate(29px, 145px);
+    -ms-transform: translate(29px, 145px);
+    transform: translate(29px, 145px); }
+  .country.country-position-2-7 {
+    -webkit-transform: translate(29px, 174px);
+    -moz-transform: translate(29px, 174px);
+    -ms-transform: translate(29px, 174px);
+    transform: translate(29px, 174px); }
+  .country.country-position-2-8 {
+    -webkit-transform: translate(29px, 203px);
+    -moz-transform: translate(29px, 203px);
+    -ms-transform: translate(29px, 203px);
+    transform: translate(29px, 203px); }
+  .country.country-position-2-9 {
+    -webkit-transform: translate(29px, 232px);
+    -moz-transform: translate(29px, 232px);
+    -ms-transform: translate(29px, 232px);
+    transform: translate(29px, 232px); }
+  .country.country-position-2-10 {
+    -webkit-transform: translate(29px, 262px);
+    -moz-transform: translate(29px, 262px);
+    -ms-transform: translate(29px, 262px);
+    transform: translate(29px, 262px); }
+  .country.country-position-2-11 {
+    -webkit-transform: translate(29px, 291px);
+    -moz-transform: translate(29px, 291px);
+    -ms-transform: translate(29px, 291px);
+    transform: translate(29px, 291px); }
+  .country.country-position-2-12 {
+    -webkit-transform: translate(29px, 320px);
+    -moz-transform: translate(29px, 320px);
+    -ms-transform: translate(29px, 320px);
+    transform: translate(29px, 320px); }
+  .country.country-position-2-13 {
+    -webkit-transform: translate(29px, 349px);
+    -moz-transform: translate(29px, 349px);
+    -ms-transform: translate(29px, 349px);
+    transform: translate(29px, 349px); }
+  .country.country-position-2-14 {
+    -webkit-transform: translate(29px, 378px);
+    -moz-transform: translate(29px, 378px);
+    -ms-transform: translate(29px, 378px);
+    transform: translate(29px, 378px); }
+  .country.country-position-2-15 {
+    -webkit-transform: translate(29px, 407px);
+    -moz-transform: translate(29px, 407px);
+    -ms-transform: translate(29px, 407px);
+    transform: translate(29px, 407px); }
+  .country.country-position-2-16 {
+    -webkit-transform: translate(29px, 436px);
+    -moz-transform: translate(29px, 436px);
+    -ms-transform: translate(29px, 436px);
+    transform: translate(29px, 436px); }
+  .country.country-position-2-17 {
+    -webkit-transform: translate(29px, 465px);
+    -moz-transform: translate(29px, 465px);
+    -ms-transform: translate(29px, 465px);
+    transform: translate(29px, 465px); }
+  .country.country-position-3-1 {
+    -webkit-transform: translate(58px, 0px);
+    -moz-transform: translate(58px, 0px);
+    -ms-transform: translate(58px, 0px);
+    transform: translate(58px, 0px); }
+  .country.country-position-3-2 {
+    -webkit-transform: translate(58px, 29px);
+    -moz-transform: translate(58px, 29px);
+    -ms-transform: translate(58px, 29px);
+    transform: translate(58px, 29px); }
+  .country.country-position-3-3 {
+    -webkit-transform: translate(58px, 58px);
+    -moz-transform: translate(58px, 58px);
+    -ms-transform: translate(58px, 58px);
+    transform: translate(58px, 58px); }
+  .country.country-position-3-4 {
+    -webkit-transform: translate(58px, 87px);
+    -moz-transform: translate(58px, 87px);
+    -ms-transform: translate(58px, 87px);
+    transform: translate(58px, 87px); }
+  .country.country-position-3-5 {
+    -webkit-transform: translate(58px, 116px);
+    -moz-transform: translate(58px, 116px);
+    -ms-transform: translate(58px, 116px);
+    transform: translate(58px, 116px); }
+  .country.country-position-3-6 {
+    -webkit-transform: translate(58px, 145px);
+    -moz-transform: translate(58px, 145px);
+    -ms-transform: translate(58px, 145px);
+    transform: translate(58px, 145px); }
+  .country.country-position-3-7 {
+    -webkit-transform: translate(58px, 174px);
+    -moz-transform: translate(58px, 174px);
+    -ms-transform: translate(58px, 174px);
+    transform: translate(58px, 174px); }
+  .country.country-position-3-8 {
+    -webkit-transform: translate(58px, 203px);
+    -moz-transform: translate(58px, 203px);
+    -ms-transform: translate(58px, 203px);
+    transform: translate(58px, 203px); }
+  .country.country-position-3-9 {
+    -webkit-transform: translate(58px, 232px);
+    -moz-transform: translate(58px, 232px);
+    -ms-transform: translate(58px, 232px);
+    transform: translate(58px, 232px); }
+  .country.country-position-3-10 {
+    -webkit-transform: translate(58px, 262px);
+    -moz-transform: translate(58px, 262px);
+    -ms-transform: translate(58px, 262px);
+    transform: translate(58px, 262px); }
+  .country.country-position-3-11 {
+    -webkit-transform: translate(58px, 291px);
+    -moz-transform: translate(58px, 291px);
+    -ms-transform: translate(58px, 291px);
+    transform: translate(58px, 291px); }
+  .country.country-position-3-12 {
+    -webkit-transform: translate(58px, 320px);
+    -moz-transform: translate(58px, 320px);
+    -ms-transform: translate(58px, 320px);
+    transform: translate(58px, 320px); }
+  .country.country-position-3-13 {
+    -webkit-transform: translate(58px, 349px);
+    -moz-transform: translate(58px, 349px);
+    -ms-transform: translate(58px, 349px);
+    transform: translate(58px, 349px); }
+  .country.country-position-3-14 {
+    -webkit-transform: translate(58px, 378px);
+    -moz-transform: translate(58px, 378px);
+    -ms-transform: translate(58px, 378px);
+    transform: translate(58px, 378px); }
+  .country.country-position-3-15 {
+    -webkit-transform: translate(58px, 407px);
+    -moz-transform: translate(58px, 407px);
+    -ms-transform: translate(58px, 407px);
+    transform: translate(58px, 407px); }
+  .country.country-position-3-16 {
+    -webkit-transform: translate(58px, 436px);
+    -moz-transform: translate(58px, 436px);
+    -ms-transform: translate(58px, 436px);
+    transform: translate(58px, 436px); }
+  .country.country-position-3-17 {
+    -webkit-transform: translate(58px, 465px);
+    -moz-transform: translate(58px, 465px);
+    -ms-transform: translate(58px, 465px);
+    transform: translate(58px, 465px); }
+  .country.country-position-4-1 {
+    -webkit-transform: translate(87px, 0px);
+    -moz-transform: translate(87px, 0px);
+    -ms-transform: translate(87px, 0px);
+    transform: translate(87px, 0px); }
+  .country.country-position-4-2 {
+    -webkit-transform: translate(87px, 29px);
+    -moz-transform: translate(87px, 29px);
+    -ms-transform: translate(87px, 29px);
+    transform: translate(87px, 29px); }
+  .country.country-position-4-3 {
+    -webkit-transform: translate(87px, 58px);
+    -moz-transform: translate(87px, 58px);
+    -ms-transform: translate(87px, 58px);
+    transform: translate(87px, 58px); }
+  .country.country-position-4-4 {
+    -webkit-transform: translate(87px, 87px);
+    -moz-transform: translate(87px, 87px);
+    -ms-transform: translate(87px, 87px);
+    transform: translate(87px, 87px); }
+  .country.country-position-4-5 {
+    -webkit-transform: translate(87px, 116px);
+    -moz-transform: translate(87px, 116px);
+    -ms-transform: translate(87px, 116px);
+    transform: translate(87px, 116px); }
+  .country.country-position-4-6 {
+    -webkit-transform: translate(87px, 145px);
+    -moz-transform: translate(87px, 145px);
+    -ms-transform: translate(87px, 145px);
+    transform: translate(87px, 145px); }
+  .country.country-position-4-7 {
+    -webkit-transform: translate(87px, 174px);
+    -moz-transform: translate(87px, 174px);
+    -ms-transform: translate(87px, 174px);
+    transform: translate(87px, 174px); }
+  .country.country-position-4-8 {
+    -webkit-transform: translate(87px, 203px);
+    -moz-transform: translate(87px, 203px);
+    -ms-transform: translate(87px, 203px);
+    transform: translate(87px, 203px); }
+  .country.country-position-4-9 {
+    -webkit-transform: translate(87px, 232px);
+    -moz-transform: translate(87px, 232px);
+    -ms-transform: translate(87px, 232px);
+    transform: translate(87px, 232px); }
+  .country.country-position-4-10 {
+    -webkit-transform: translate(87px, 262px);
+    -moz-transform: translate(87px, 262px);
+    -ms-transform: translate(87px, 262px);
+    transform: translate(87px, 262px); }
+  .country.country-position-4-11 {
+    -webkit-transform: translate(87px, 291px);
+    -moz-transform: translate(87px, 291px);
+    -ms-transform: translate(87px, 291px);
+    transform: translate(87px, 291px); }
+  .country.country-position-4-12 {
+    -webkit-transform: translate(87px, 320px);
+    -moz-transform: translate(87px, 320px);
+    -ms-transform: translate(87px, 320px);
+    transform: translate(87px, 320px); }
+  .country.country-position-4-13 {
+    -webkit-transform: translate(87px, 349px);
+    -moz-transform: translate(87px, 349px);
+    -ms-transform: translate(87px, 349px);
+    transform: translate(87px, 349px); }
+  .country.country-position-4-14 {
+    -webkit-transform: translate(87px, 378px);
+    -moz-transform: translate(87px, 378px);
+    -ms-transform: translate(87px, 378px);
+    transform: translate(87px, 378px); }
+  .country.country-position-4-15 {
+    -webkit-transform: translate(87px, 407px);
+    -moz-transform: translate(87px, 407px);
+    -ms-transform: translate(87px, 407px);
+    transform: translate(87px, 407px); }
+  .country.country-position-4-16 {
+    -webkit-transform: translate(87px, 436px);
+    -moz-transform: translate(87px, 436px);
+    -ms-transform: translate(87px, 436px);
+    transform: translate(87px, 436px); }
+  .country.country-position-4-17 {
+    -webkit-transform: translate(87px, 465px);
+    -moz-transform: translate(87px, 465px);
+    -ms-transform: translate(87px, 465px);
+    transform: translate(87px, 465px); }
+  .country.country-position-5-1 {
+    -webkit-transform: translate(116px, 0px);
+    -moz-transform: translate(116px, 0px);
+    -ms-transform: translate(116px, 0px);
+    transform: translate(116px, 0px); }
+  .country.country-position-5-2 {
+    -webkit-transform: translate(116px, 29px);
+    -moz-transform: translate(116px, 29px);
+    -ms-transform: translate(116px, 29px);
+    transform: translate(116px, 29px); }
+  .country.country-position-5-3 {
+    -webkit-transform: translate(116px, 58px);
+    -moz-transform: translate(116px, 58px);
+    -ms-transform: translate(116px, 58px);
+    transform: translate(116px, 58px); }
+  .country.country-position-5-4 {
+    -webkit-transform: translate(116px, 87px);
+    -moz-transform: translate(116px, 87px);
+    -ms-transform: translate(116px, 87px);
+    transform: translate(116px, 87px); }
+  .country.country-position-5-5 {
+    -webkit-transform: translate(116px, 116px);
+    -moz-transform: translate(116px, 116px);
+    -ms-transform: translate(116px, 116px);
+    transform: translate(116px, 116px); }
+  .country.country-position-5-6 {
+    -webkit-transform: translate(116px, 145px);
+    -moz-transform: translate(116px, 145px);
+    -ms-transform: translate(116px, 145px);
+    transform: translate(116px, 145px); }
+  .country.country-position-5-7 {
+    -webkit-transform: translate(116px, 174px);
+    -moz-transform: translate(116px, 174px);
+    -ms-transform: translate(116px, 174px);
+    transform: translate(116px, 174px); }
+  .country.country-position-5-8 {
+    -webkit-transform: translate(116px, 203px);
+    -moz-transform: translate(116px, 203px);
+    -ms-transform: translate(116px, 203px);
+    transform: translate(116px, 203px); }
+  .country.country-position-5-9 {
+    -webkit-transform: translate(116px, 232px);
+    -moz-transform: translate(116px, 232px);
+    -ms-transform: translate(116px, 232px);
+    transform: translate(116px, 232px); }
+  .country.country-position-5-10 {
+    -webkit-transform: translate(116px, 262px);
+    -moz-transform: translate(116px, 262px);
+    -ms-transform: translate(116px, 262px);
+    transform: translate(116px, 262px); }
+  .country.country-position-5-11 {
+    -webkit-transform: translate(116px, 291px);
+    -moz-transform: translate(116px, 291px);
+    -ms-transform: translate(116px, 291px);
+    transform: translate(116px, 291px); }
+  .country.country-position-5-12 {
+    -webkit-transform: translate(116px, 320px);
+    -moz-transform: translate(116px, 320px);
+    -ms-transform: translate(116px, 320px);
+    transform: translate(116px, 320px); }
+  .country.country-position-5-13 {
+    -webkit-transform: translate(116px, 349px);
+    -moz-transform: translate(116px, 349px);
+    -ms-transform: translate(116px, 349px);
+    transform: translate(116px, 349px); }
+  .country.country-position-5-14 {
+    -webkit-transform: translate(116px, 378px);
+    -moz-transform: translate(116px, 378px);
+    -ms-transform: translate(116px, 378px);
+    transform: translate(116px, 378px); }
+  .country.country-position-5-15 {
+    -webkit-transform: translate(116px, 407px);
+    -moz-transform: translate(116px, 407px);
+    -ms-transform: translate(116px, 407px);
+    transform: translate(116px, 407px); }
+  .country.country-position-5-16 {
+    -webkit-transform: translate(116px, 436px);
+    -moz-transform: translate(116px, 436px);
+    -ms-transform: translate(116px, 436px);
+    transform: translate(116px, 436px); }
+  .country.country-position-5-17 {
+    -webkit-transform: translate(116px, 465px);
+    -moz-transform: translate(116px, 465px);
+    -ms-transform: translate(116px, 465px);
+    transform: translate(116px, 465px); }
+  .country.country-position-6-1 {
+    -webkit-transform: translate(145px, 0px);
+    -moz-transform: translate(145px, 0px);
+    -ms-transform: translate(145px, 0px);
+    transform: translate(145px, 0px); }
+  .country.country-position-6-2 {
+    -webkit-transform: translate(145px, 29px);
+    -moz-transform: translate(145px, 29px);
+    -ms-transform: translate(145px, 29px);
+    transform: translate(145px, 29px); }
+  .country.country-position-6-3 {
+    -webkit-transform: translate(145px, 58px);
+    -moz-transform: translate(145px, 58px);
+    -ms-transform: translate(145px, 58px);
+    transform: translate(145px, 58px); }
+  .country.country-position-6-4 {
+    -webkit-transform: translate(145px, 87px);
+    -moz-transform: translate(145px, 87px);
+    -ms-transform: translate(145px, 87px);
+    transform: translate(145px, 87px); }
+  .country.country-position-6-5 {
+    -webkit-transform: translate(145px, 116px);
+    -moz-transform: translate(145px, 116px);
+    -ms-transform: translate(145px, 116px);
+    transform: translate(145px, 116px); }
+  .country.country-position-6-6 {
+    -webkit-transform: translate(145px, 145px);
+    -moz-transform: translate(145px, 145px);
+    -ms-transform: translate(145px, 145px);
+    transform: translate(145px, 145px); }
+  .country.country-position-6-7 {
+    -webkit-transform: translate(145px, 174px);
+    -moz-transform: translate(145px, 174px);
+    -ms-transform: translate(145px, 174px);
+    transform: translate(145px, 174px); }
+  .country.country-position-6-8 {
+    -webkit-transform: translate(145px, 203px);
+    -moz-transform: translate(145px, 203px);
+    -ms-transform: translate(145px, 203px);
+    transform: translate(145px, 203px); }
+  .country.country-position-6-9 {
+    -webkit-transform: translate(145px, 232px);
+    -moz-transform: translate(145px, 232px);
+    -ms-transform: translate(145px, 232px);
+    transform: translate(145px, 232px); }
+  .country.country-position-6-10 {
+    -webkit-transform: translate(145px, 262px);
+    -moz-transform: translate(145px, 262px);
+    -ms-transform: translate(145px, 262px);
+    transform: translate(145px, 262px); }
+  .country.country-position-6-11 {
+    -webkit-transform: translate(145px, 291px);
+    -moz-transform: translate(145px, 291px);
+    -ms-transform: translate(145px, 291px);
+    transform: translate(145px, 291px); }
+  .country.country-position-6-12 {
+    -webkit-transform: translate(145px, 320px);
+    -moz-transform: translate(145px, 320px);
+    -ms-transform: translate(145px, 320px);
+    transform: translate(145px, 320px); }
+  .country.country-position-6-13 {
+    -webkit-transform: translate(145px, 349px);
+    -moz-transform: translate(145px, 349px);
+    -ms-transform: translate(145px, 349px);
+    transform: translate(145px, 349px); }
+  .country.country-position-6-14 {
+    -webkit-transform: translate(145px, 378px);
+    -moz-transform: translate(145px, 378px);
+    -ms-transform: translate(145px, 378px);
+    transform: translate(145px, 378px); }
+  .country.country-position-6-15 {
+    -webkit-transform: translate(145px, 407px);
+    -moz-transform: translate(145px, 407px);
+    -ms-transform: translate(145px, 407px);
+    transform: translate(145px, 407px); }
+  .country.country-position-6-16 {
+    -webkit-transform: translate(145px, 436px);
+    -moz-transform: translate(145px, 436px);
+    -ms-transform: translate(145px, 436px);
+    transform: translate(145px, 436px); }
+  .country.country-position-6-17 {
+    -webkit-transform: translate(145px, 465px);
+    -moz-transform: translate(145px, 465px);
+    -ms-transform: translate(145px, 465px);
+    transform: translate(145px, 465px); }
+  .country.country-position-7-1 {
+    -webkit-transform: translate(174px, 0px);
+    -moz-transform: translate(174px, 0px);
+    -ms-transform: translate(174px, 0px);
+    transform: translate(174px, 0px); }
+  .country.country-position-7-2 {
+    -webkit-transform: translate(174px, 29px);
+    -moz-transform: translate(174px, 29px);
+    -ms-transform: translate(174px, 29px);
+    transform: translate(174px, 29px); }
+  .country.country-position-7-3 {
+    -webkit-transform: translate(174px, 58px);
+    -moz-transform: translate(174px, 58px);
+    -ms-transform: translate(174px, 58px);
+    transform: translate(174px, 58px); }
+  .country.country-position-7-4 {
+    -webkit-transform: translate(174px, 87px);
+    -moz-transform: translate(174px, 87px);
+    -ms-transform: translate(174px, 87px);
+    transform: translate(174px, 87px); }
+  .country.country-position-7-5 {
+    -webkit-transform: translate(174px, 116px);
+    -moz-transform: translate(174px, 116px);
+    -ms-transform: translate(174px, 116px);
+    transform: translate(174px, 116px); }
+  .country.country-position-7-6 {
+    -webkit-transform: translate(174px, 145px);
+    -moz-transform: translate(174px, 145px);
+    -ms-transform: translate(174px, 145px);
+    transform: translate(174px, 145px); }
+  .country.country-position-7-7 {
+    -webkit-transform: translate(174px, 174px);
+    -moz-transform: translate(174px, 174px);
+    -ms-transform: translate(174px, 174px);
+    transform: translate(174px, 174px); }
+  .country.country-position-7-8 {
+    -webkit-transform: translate(174px, 203px);
+    -moz-transform: translate(174px, 203px);
+    -ms-transform: translate(174px, 203px);
+    transform: translate(174px, 203px); }
+  .country.country-position-7-9 {
+    -webkit-transform: translate(174px, 232px);
+    -moz-transform: translate(174px, 232px);
+    -ms-transform: translate(174px, 232px);
+    transform: translate(174px, 232px); }
+  .country.country-position-7-10 {
+    -webkit-transform: translate(174px, 262px);
+    -moz-transform: translate(174px, 262px);
+    -ms-transform: translate(174px, 262px);
+    transform: translate(174px, 262px); }
+  .country.country-position-7-11 {
+    -webkit-transform: translate(174px, 291px);
+    -moz-transform: translate(174px, 291px);
+    -ms-transform: translate(174px, 291px);
+    transform: translate(174px, 291px); }
+  .country.country-position-7-12 {
+    -webkit-transform: translate(174px, 320px);
+    -moz-transform: translate(174px, 320px);
+    -ms-transform: translate(174px, 320px);
+    transform: translate(174px, 320px); }
+  .country.country-position-7-13 {
+    -webkit-transform: translate(174px, 349px);
+    -moz-transform: translate(174px, 349px);
+    -ms-transform: translate(174px, 349px);
+    transform: translate(174px, 349px); }
+  .country.country-position-7-14 {
+    -webkit-transform: translate(174px, 378px);
+    -moz-transform: translate(174px, 378px);
+    -ms-transform: translate(174px, 378px);
+    transform: translate(174px, 378px); }
+  .country.country-position-7-15 {
+    -webkit-transform: translate(174px, 407px);
+    -moz-transform: translate(174px, 407px);
+    -ms-transform: translate(174px, 407px);
+    transform: translate(174px, 407px); }
+  .country.country-position-7-16 {
+    -webkit-transform: translate(174px, 436px);
+    -moz-transform: translate(174px, 436px);
+    -ms-transform: translate(174px, 436px);
+    transform: translate(174px, 436px); }
+  .country.country-position-7-17 {
+    -webkit-transform: translate(174px, 465px);
+    -moz-transform: translate(174px, 465px);
+    -ms-transform: translate(174px, 465px);
+    transform: translate(174px, 465px); }
+  .country.country-position-8-1 {
+    -webkit-transform: translate(203px, 0px);
+    -moz-transform: translate(203px, 0px);
+    -ms-transform: translate(203px, 0px);
+    transform: translate(203px, 0px); }
+  .country.country-position-8-2 {
+    -webkit-transform: translate(203px, 29px);
+    -moz-transform: translate(203px, 29px);
+    -ms-transform: translate(203px, 29px);
+    transform: translate(203px, 29px); }
+  .country.country-position-8-3 {
+    -webkit-transform: translate(203px, 58px);
+    -moz-transform: translate(203px, 58px);
+    -ms-transform: translate(203px, 58px);
+    transform: translate(203px, 58px); }
+  .country.country-position-8-4 {
+    -webkit-transform: translate(203px, 87px);
+    -moz-transform: translate(203px, 87px);
+    -ms-transform: translate(203px, 87px);
+    transform: translate(203px, 87px); }
+  .country.country-position-8-5 {
+    -webkit-transform: translate(203px, 116px);
+    -moz-transform: translate(203px, 116px);
+    -ms-transform: translate(203px, 116px);
+    transform: translate(203px, 116px); }
+  .country.country-position-8-6 {
+    -webkit-transform: translate(203px, 145px);
+    -moz-transform: translate(203px, 145px);
+    -ms-transform: translate(203px, 145px);
+    transform: translate(203px, 145px); }
+  .country.country-position-8-7 {
+    -webkit-transform: translate(203px, 174px);
+    -moz-transform: translate(203px, 174px);
+    -ms-transform: translate(203px, 174px);
+    transform: translate(203px, 174px); }
+  .country.country-position-8-8 {
+    -webkit-transform: translate(203px, 203px);
+    -moz-transform: translate(203px, 203px);
+    -ms-transform: translate(203px, 203px);
+    transform: translate(203px, 203px); }
+  .country.country-position-8-9 {
+    -webkit-transform: translate(203px, 232px);
+    -moz-transform: translate(203px, 232px);
+    -ms-transform: translate(203px, 232px);
+    transform: translate(203px, 232px); }
+  .country.country-position-8-10 {
+    -webkit-transform: translate(203px, 262px);
+    -moz-transform: translate(203px, 262px);
+    -ms-transform: translate(203px, 262px);
+    transform: translate(203px, 262px); }
+  .country.country-position-8-11 {
+    -webkit-transform: translate(203px, 291px);
+    -moz-transform: translate(203px, 291px);
+    -ms-transform: translate(203px, 291px);
+    transform: translate(203px, 291px); }
+  .country.country-position-8-12 {
+    -webkit-transform: translate(203px, 320px);
+    -moz-transform: translate(203px, 320px);
+    -ms-transform: translate(203px, 320px);
+    transform: translate(203px, 320px); }
+  .country.country-position-8-13 {
+    -webkit-transform: translate(203px, 349px);
+    -moz-transform: translate(203px, 349px);
+    -ms-transform: translate(203px, 349px);
+    transform: translate(203px, 349px); }
+  .country.country-position-8-14 {
+    -webkit-transform: translate(203px, 378px);
+    -moz-transform: translate(203px, 378px);
+    -ms-transform: translate(203px, 378px);
+    transform: translate(203px, 378px); }
+  .country.country-position-8-15 {
+    -webkit-transform: translate(203px, 407px);
+    -moz-transform: translate(203px, 407px);
+    -ms-transform: translate(203px, 407px);
+    transform: translate(203px, 407px); }
+  .country.country-position-8-16 {
+    -webkit-transform: translate(203px, 436px);
+    -moz-transform: translate(203px, 436px);
+    -ms-transform: translate(203px, 436px);
+    transform: translate(203px, 436px); }
+  .country.country-position-8-17 {
+    -webkit-transform: translate(203px, 465px);
+    -moz-transform: translate(203px, 465px);
+    -ms-transform: translate(203px, 465px);
+    transform: translate(203px, 465px); }
+  .country.country-position-9-1 {
+    -webkit-transform: translate(232px, 0px);
+    -moz-transform: translate(232px, 0px);
+    -ms-transform: translate(232px, 0px);
+    transform: translate(232px, 0px); }
+  .country.country-position-9-2 {
+    -webkit-transform: translate(232px, 29px);
+    -moz-transform: translate(232px, 29px);
+    -ms-transform: translate(232px, 29px);
+    transform: translate(232px, 29px); }
+  .country.country-position-9-3 {
+    -webkit-transform: translate(232px, 58px);
+    -moz-transform: translate(232px, 58px);
+    -ms-transform: translate(232px, 58px);
+    transform: translate(232px, 58px); }
+  .country.country-position-9-4 {
+    -webkit-transform: translate(232px, 87px);
+    -moz-transform: translate(232px, 87px);
+    -ms-transform: translate(232px, 87px);
+    transform: translate(232px, 87px); }
+  .country.country-position-9-5 {
+    -webkit-transform: translate(232px, 116px);
+    -moz-transform: translate(232px, 116px);
+    -ms-transform: translate(232px, 116px);
+    transform: translate(232px, 116px); }
+  .country.country-position-9-6 {
+    -webkit-transform: translate(232px, 145px);
+    -moz-transform: translate(232px, 145px);
+    -ms-transform: translate(232px, 145px);
+    transform: translate(232px, 145px); }
+  .country.country-position-9-7 {
+    -webkit-transform: translate(232px, 174px);
+    -moz-transform: translate(232px, 174px);
+    -ms-transform: translate(232px, 174px);
+    transform: translate(232px, 174px); }
+  .country.country-position-9-8 {
+    -webkit-transform: translate(232px, 203px);
+    -moz-transform: translate(232px, 203px);
+    -ms-transform: translate(232px, 203px);
+    transform: translate(232px, 203px); }
+  .country.country-position-9-9 {
+    -webkit-transform: translate(232px, 232px);
+    -moz-transform: translate(232px, 232px);
+    -ms-transform: translate(232px, 232px);
+    transform: translate(232px, 232px); }
+  .country.country-position-9-10 {
+    -webkit-transform: translate(232px, 262px);
+    -moz-transform: translate(232px, 262px);
+    -ms-transform: translate(232px, 262px);
+    transform: translate(232px, 262px); }
+  .country.country-position-9-11 {
+    -webkit-transform: translate(232px, 291px);
+    -moz-transform: translate(232px, 291px);
+    -ms-transform: translate(232px, 291px);
+    transform: translate(232px, 291px); }
+  .country.country-position-9-12 {
+    -webkit-transform: translate(232px, 320px);
+    -moz-transform: translate(232px, 320px);
+    -ms-transform: translate(232px, 320px);
+    transform: translate(232px, 320px); }
+  .country.country-position-9-13 {
+    -webkit-transform: translate(232px, 349px);
+    -moz-transform: translate(232px, 349px);
+    -ms-transform: translate(232px, 349px);
+    transform: translate(232px, 349px); }
+  .country.country-position-9-14 {
+    -webkit-transform: translate(232px, 378px);
+    -moz-transform: translate(232px, 378px);
+    -ms-transform: translate(232px, 378px);
+    transform: translate(232px, 378px); }
+  .country.country-position-9-15 {
+    -webkit-transform: translate(232px, 407px);
+    -moz-transform: translate(232px, 407px);
+    -ms-transform: translate(232px, 407px);
+    transform: translate(232px, 407px); }
+  .country.country-position-9-16 {
+    -webkit-transform: translate(232px, 436px);
+    -moz-transform: translate(232px, 436px);
+    -ms-transform: translate(232px, 436px);
+    transform: translate(232px, 436px); }
+  .country.country-position-9-17 {
+    -webkit-transform: translate(232px, 465px);
+    -moz-transform: translate(232px, 465px);
+    -ms-transform: translate(232px, 465px);
+    transform: translate(232px, 465px); }
+  .country.country-position-10-1 {
+    -webkit-transform: translate(262px, 0px);
+    -moz-transform: translate(262px, 0px);
+    -ms-transform: translate(262px, 0px);
+    transform: translate(262px, 0px); }
+  .country.country-position-10-2 {
+    -webkit-transform: translate(262px, 29px);
+    -moz-transform: translate(262px, 29px);
+    -ms-transform: translate(262px, 29px);
+    transform: translate(262px, 29px); }
+  .country.country-position-10-3 {
+    -webkit-transform: translate(262px, 58px);
+    -moz-transform: translate(262px, 58px);
+    -ms-transform: translate(262px, 58px);
+    transform: translate(262px, 58px); }
+  .country.country-position-10-4 {
+    -webkit-transform: translate(262px, 87px);
+    -moz-transform: translate(262px, 87px);
+    -ms-transform: translate(262px, 87px);
+    transform: translate(262px, 87px); }
+  .country.country-position-10-5 {
+    -webkit-transform: translate(262px, 116px);
+    -moz-transform: translate(262px, 116px);
+    -ms-transform: translate(262px, 116px);
+    transform: translate(262px, 116px); }
+  .country.country-position-10-6 {
+    -webkit-transform: translate(262px, 145px);
+    -moz-transform: translate(262px, 145px);
+    -ms-transform: translate(262px, 145px);
+    transform: translate(262px, 145px); }
+  .country.country-position-10-7 {
+    -webkit-transform: translate(262px, 174px);
+    -moz-transform: translate(262px, 174px);
+    -ms-transform: translate(262px, 174px);
+    transform: translate(262px, 174px); }
+  .country.country-position-10-8 {
+    -webkit-transform: translate(262px, 203px);
+    -moz-transform: translate(262px, 203px);
+    -ms-transform: translate(262px, 203px);
+    transform: translate(262px, 203px); }
+  .country.country-position-10-9 {
+    -webkit-transform: translate(262px, 232px);
+    -moz-transform: translate(262px, 232px);
+    -ms-transform: translate(262px, 232px);
+    transform: translate(262px, 232px); }
+  .country.country-position-10-10 {
+    -webkit-transform: translate(262px, 262px);
+    -moz-transform: translate(262px, 262px);
+    -ms-transform: translate(262px, 262px);
+    transform: translate(262px, 262px); }
+  .country.country-position-10-11 {
+    -webkit-transform: translate(262px, 291px);
+    -moz-transform: translate(262px, 291px);
+    -ms-transform: translate(262px, 291px);
+    transform: translate(262px, 291px); }
+  .country.country-position-10-12 {
+    -webkit-transform: translate(262px, 320px);
+    -moz-transform: translate(262px, 320px);
+    -ms-transform: translate(262px, 320px);
+    transform: translate(262px, 320px); }
+  .country.country-position-10-13 {
+    -webkit-transform: translate(262px, 349px);
+    -moz-transform: translate(262px, 349px);
+    -ms-transform: translate(262px, 349px);
+    transform: translate(262px, 349px); }
+  .country.country-position-10-14 {
+    -webkit-transform: translate(262px, 378px);
+    -moz-transform: translate(262px, 378px);
+    -ms-transform: translate(262px, 378px);
+    transform: translate(262px, 378px); }
+  .country.country-position-10-15 {
+    -webkit-transform: translate(262px, 407px);
+    -moz-transform: translate(262px, 407px);
+    -ms-transform: translate(262px, 407px);
+    transform: translate(262px, 407px); }
+  .country.country-position-10-16 {
+    -webkit-transform: translate(262px, 436px);
+    -moz-transform: translate(262px, 436px);
+    -ms-transform: translate(262px, 436px);
+    transform: translate(262px, 436px); }
+  .country.country-position-10-17 {
+    -webkit-transform: translate(262px, 465px);
+    -moz-transform: translate(262px, 465px);
+    -ms-transform: translate(262px, 465px);
+    transform: translate(262px, 465px); }
+  .country.country-position-11-1 {
+    -webkit-transform: translate(291px, 0px);
+    -moz-transform: translate(291px, 0px);
+    -ms-transform: translate(291px, 0px);
+    transform: translate(291px, 0px); }
+  .country.country-position-11-2 {
+    -webkit-transform: translate(291px, 29px);
+    -moz-transform: translate(291px, 29px);
+    -ms-transform: translate(291px, 29px);
+    transform: translate(291px, 29px); }
+  .country.country-position-11-3 {
+    -webkit-transform: translate(291px, 58px);
+    -moz-transform: translate(291px, 58px);
+    -ms-transform: translate(291px, 58px);
+    transform: translate(291px, 58px); }
+  .country.country-position-11-4 {
+    -webkit-transform: translate(291px, 87px);
+    -moz-transform: translate(291px, 87px);
+    -ms-transform: translate(291px, 87px);
+    transform: translate(291px, 87px); }
+  .country.country-position-11-5 {
+    -webkit-transform: translate(291px, 116px);
+    -moz-transform: translate(291px, 116px);
+    -ms-transform: translate(291px, 116px);
+    transform: translate(291px, 116px); }
+  .country.country-position-11-6 {
+    -webkit-transform: translate(291px, 145px);
+    -moz-transform: translate(291px, 145px);
+    -ms-transform: translate(291px, 145px);
+    transform: translate(291px, 145px); }
+  .country.country-position-11-7 {
+    -webkit-transform: translate(291px, 174px);
+    -moz-transform: translate(291px, 174px);
+    -ms-transform: translate(291px, 174px);
+    transform: translate(291px, 174px); }
+  .country.country-position-11-8 {
+    -webkit-transform: translate(291px, 203px);
+    -moz-transform: translate(291px, 203px);
+    -ms-transform: translate(291px, 203px);
+    transform: translate(291px, 203px); }
+  .country.country-position-11-9 {
+    -webkit-transform: translate(291px, 232px);
+    -moz-transform: translate(291px, 232px);
+    -ms-transform: translate(291px, 232px);
+    transform: translate(291px, 232px); }
+  .country.country-position-11-10 {
+    -webkit-transform: translate(291px, 262px);
+    -moz-transform: translate(291px, 262px);
+    -ms-transform: translate(291px, 262px);
+    transform: translate(291px, 262px); }
+  .country.country-position-11-11 {
+    -webkit-transform: translate(291px, 291px);
+    -moz-transform: translate(291px, 291px);
+    -ms-transform: translate(291px, 291px);
+    transform: translate(291px, 291px); }
+  .country.country-position-11-12 {
+    -webkit-transform: translate(291px, 320px);
+    -moz-transform: translate(291px, 320px);
+    -ms-transform: translate(291px, 320px);
+    transform: translate(291px, 320px); }
+  .country.country-position-11-13 {
+    -webkit-transform: translate(291px, 349px);
+    -moz-transform: translate(291px, 349px);
+    -ms-transform: translate(291px, 349px);
+    transform: translate(291px, 349px); }
+  .country.country-position-11-14 {
+    -webkit-transform: translate(291px, 378px);
+    -moz-transform: translate(291px, 378px);
+    -ms-transform: translate(291px, 378px);
+    transform: translate(291px, 378px); }
+  .country.country-position-11-15 {
+    -webkit-transform: translate(291px, 407px);
+    -moz-transform: translate(291px, 407px);
+    -ms-transform: translate(291px, 407px);
+    transform: translate(291px, 407px); }
+  .country.country-position-11-16 {
+    -webkit-transform: translate(291px, 436px);
+    -moz-transform: translate(291px, 436px);
+    -ms-transform: translate(291px, 436px);
+    transform: translate(291px, 436px); }
+  .country.country-position-11-17 {
+    -webkit-transform: translate(291px, 465px);
+    -moz-transform: translate(291px, 465px);
+    -ms-transform: translate(291px, 465px);
+    transform: translate(291px, 465px); }
+  .country.country-position-12-1 {
+    -webkit-transform: translate(320px, 0px);
+    -moz-transform: translate(320px, 0px);
+    -ms-transform: translate(320px, 0px);
+    transform: translate(320px, 0px); }
+  .country.country-position-12-2 {
+    -webkit-transform: translate(320px, 29px);
+    -moz-transform: translate(320px, 29px);
+    -ms-transform: translate(320px, 29px);
+    transform: translate(320px, 29px); }
+  .country.country-position-12-3 {
+    -webkit-transform: translate(320px, 58px);
+    -moz-transform: translate(320px, 58px);
+    -ms-transform: translate(320px, 58px);
+    transform: translate(320px, 58px); }
+  .country.country-position-12-4 {
+    -webkit-transform: translate(320px, 87px);
+    -moz-transform: translate(320px, 87px);
+    -ms-transform: translate(320px, 87px);
+    transform: translate(320px, 87px); }
+  .country.country-position-12-5 {
+    -webkit-transform: translate(320px, 116px);
+    -moz-transform: translate(320px, 116px);
+    -ms-transform: translate(320px, 116px);
+    transform: translate(320px, 116px); }
+  .country.country-position-12-6 {
+    -webkit-transform: translate(320px, 145px);
+    -moz-transform: translate(320px, 145px);
+    -ms-transform: translate(320px, 145px);
+    transform: translate(320px, 145px); }
+  .country.country-position-12-7 {
+    -webkit-transform: translate(320px, 174px);
+    -moz-transform: translate(320px, 174px);
+    -ms-transform: translate(320px, 174px);
+    transform: translate(320px, 174px); }
+  .country.country-position-12-8 {
+    -webkit-transform: translate(320px, 203px);
+    -moz-transform: translate(320px, 203px);
+    -ms-transform: translate(320px, 203px);
+    transform: translate(320px, 203px); }
+  .country.country-position-12-9 {
+    -webkit-transform: translate(320px, 232px);
+    -moz-transform: translate(320px, 232px);
+    -ms-transform: translate(320px, 232px);
+    transform: translate(320px, 232px); }
+  .country.country-position-12-10 {
+    -webkit-transform: translate(320px, 262px);
+    -moz-transform: translate(320px, 262px);
+    -ms-transform: translate(320px, 262px);
+    transform: translate(320px, 262px); }
+  .country.country-position-12-11 {
+    -webkit-transform: translate(320px, 291px);
+    -moz-transform: translate(320px, 291px);
+    -ms-transform: translate(320px, 291px);
+    transform: translate(320px, 291px); }
+  .country.country-position-12-12 {
+    -webkit-transform: translate(320px, 320px);
+    -moz-transform: translate(320px, 320px);
+    -ms-transform: translate(320px, 320px);
+    transform: translate(320px, 320px); }
+  .country.country-position-12-13 {
+    -webkit-transform: translate(320px, 349px);
+    -moz-transform: translate(320px, 349px);
+    -ms-transform: translate(320px, 349px);
+    transform: translate(320px, 349px); }
+  .country.country-position-12-14 {
+    -webkit-transform: translate(320px, 378px);
+    -moz-transform: translate(320px, 378px);
+    -ms-transform: translate(320px, 378px);
+    transform: translate(320px, 378px); }
+  .country.country-position-12-15 {
+    -webkit-transform: translate(320px, 407px);
+    -moz-transform: translate(320px, 407px);
+    -ms-transform: translate(320px, 407px);
+    transform: translate(320px, 407px); }
+  .country.country-position-12-16 {
+    -webkit-transform: translate(320px, 436px);
+    -moz-transform: translate(320px, 436px);
+    -ms-transform: translate(320px, 436px);
+    transform: translate(320px, 436px); }
+  .country.country-position-12-17 {
+    -webkit-transform: translate(320px, 465px);
+    -moz-transform: translate(320px, 465px);
+    -ms-transform: translate(320px, 465px);
+    transform: translate(320px, 465px); }
+  .country.country-position-13-1 {
+    -webkit-transform: translate(349px, 0px);
+    -moz-transform: translate(349px, 0px);
+    -ms-transform: translate(349px, 0px);
+    transform: translate(349px, 0px); }
+  .country.country-position-13-2 {
+    -webkit-transform: translate(349px, 29px);
+    -moz-transform: translate(349px, 29px);
+    -ms-transform: translate(349px, 29px);
+    transform: translate(349px, 29px); }
+  .country.country-position-13-3 {
+    -webkit-transform: translate(349px, 58px);
+    -moz-transform: translate(349px, 58px);
+    -ms-transform: translate(349px, 58px);
+    transform: translate(349px, 58px); }
+  .country.country-position-13-4 {
+    -webkit-transform: translate(349px, 87px);
+    -moz-transform: translate(349px, 87px);
+    -ms-transform: translate(349px, 87px);
+    transform: translate(349px, 87px); }
+  .country.country-position-13-5 {
+    -webkit-transform: translate(349px, 116px);
+    -moz-transform: translate(349px, 116px);
+    -ms-transform: translate(349px, 116px);
+    transform: translate(349px, 116px); }
+  .country.country-position-13-6 {
+    -webkit-transform: translate(349px, 145px);
+    -moz-transform: translate(349px, 145px);
+    -ms-transform: translate(349px, 145px);
+    transform: translate(349px, 145px); }
+  .country.country-position-13-7 {
+    -webkit-transform: translate(349px, 174px);
+    -moz-transform: translate(349px, 174px);
+    -ms-transform: translate(349px, 174px);
+    transform: translate(349px, 174px); }
+  .country.country-position-13-8 {
+    -webkit-transform: translate(349px, 203px);
+    -moz-transform: translate(349px, 203px);
+    -ms-transform: translate(349px, 203px);
+    transform: translate(349px, 203px); }
+  .country.country-position-13-9 {
+    -webkit-transform: translate(349px, 232px);
+    -moz-transform: translate(349px, 232px);
+    -ms-transform: translate(349px, 232px);
+    transform: translate(349px, 232px); }
+  .country.country-position-13-10 {
+    -webkit-transform: translate(349px, 262px);
+    -moz-transform: translate(349px, 262px);
+    -ms-transform: translate(349px, 262px);
+    transform: translate(349px, 262px); }
+  .country.country-position-13-11 {
+    -webkit-transform: translate(349px, 291px);
+    -moz-transform: translate(349px, 291px);
+    -ms-transform: translate(349px, 291px);
+    transform: translate(349px, 291px); }
+  .country.country-position-13-12 {
+    -webkit-transform: translate(349px, 320px);
+    -moz-transform: translate(349px, 320px);
+    -ms-transform: translate(349px, 320px);
+    transform: translate(349px, 320px); }
+  .country.country-position-13-13 {
+    -webkit-transform: translate(349px, 349px);
+    -moz-transform: translate(349px, 349px);
+    -ms-transform: translate(349px, 349px);
+    transform: translate(349px, 349px); }
+  .country.country-position-13-14 {
+    -webkit-transform: translate(349px, 378px);
+    -moz-transform: translate(349px, 378px);
+    -ms-transform: translate(349px, 378px);
+    transform: translate(349px, 378px); }
+  .country.country-position-13-15 {
+    -webkit-transform: translate(349px, 407px);
+    -moz-transform: translate(349px, 407px);
+    -ms-transform: translate(349px, 407px);
+    transform: translate(349px, 407px); }
+  .country.country-position-13-16 {
+    -webkit-transform: translate(349px, 436px);
+    -moz-transform: translate(349px, 436px);
+    -ms-transform: translate(349px, 436px);
+    transform: translate(349px, 436px); }
+  .country.country-position-13-17 {
+    -webkit-transform: translate(349px, 465px);
+    -moz-transform: translate(349px, 465px);
+    -ms-transform: translate(349px, 465px);
+    transform: translate(349px, 465px); }
+  .country.country-position-14-1 {
+    -webkit-transform: translate(378px, 0px);
+    -moz-transform: translate(378px, 0px);
+    -ms-transform: translate(378px, 0px);
+    transform: translate(378px, 0px); }
+  .country.country-position-14-2 {
+    -webkit-transform: translate(378px, 29px);
+    -moz-transform: translate(378px, 29px);
+    -ms-transform: translate(378px, 29px);
+    transform: translate(378px, 29px); }
+  .country.country-position-14-3 {
+    -webkit-transform: translate(378px, 58px);
+    -moz-transform: translate(378px, 58px);
+    -ms-transform: translate(378px, 58px);
+    transform: translate(378px, 58px); }
+  .country.country-position-14-4 {
+    -webkit-transform: translate(378px, 87px);
+    -moz-transform: translate(378px, 87px);
+    -ms-transform: translate(378px, 87px);
+    transform: translate(378px, 87px); }
+  .country.country-position-14-5 {
+    -webkit-transform: translate(378px, 116px);
+    -moz-transform: translate(378px, 116px);
+    -ms-transform: translate(378px, 116px);
+    transform: translate(378px, 116px); }
+  .country.country-position-14-6 {
+    -webkit-transform: translate(378px, 145px);
+    -moz-transform: translate(378px, 145px);
+    -ms-transform: translate(378px, 145px);
+    transform: translate(378px, 145px); }
+  .country.country-position-14-7 {
+    -webkit-transform: translate(378px, 174px);
+    -moz-transform: translate(378px, 174px);
+    -ms-transform: translate(378px, 174px);
+    transform: translate(378px, 174px); }
+  .country.country-position-14-8 {
+    -webkit-transform: translate(378px, 203px);
+    -moz-transform: translate(378px, 203px);
+    -ms-transform: translate(378px, 203px);
+    transform: translate(378px, 203px); }
+  .country.country-position-14-9 {
+    -webkit-transform: translate(378px, 232px);
+    -moz-transform: translate(378px, 232px);
+    -ms-transform: translate(378px, 232px);
+    transform: translate(378px, 232px); }
+  .country.country-position-14-10 {
+    -webkit-transform: translate(378px, 262px);
+    -moz-transform: translate(378px, 262px);
+    -ms-transform: translate(378px, 262px);
+    transform: translate(378px, 262px); }
+  .country.country-position-14-11 {
+    -webkit-transform: translate(378px, 291px);
+    -moz-transform: translate(378px, 291px);
+    -ms-transform: translate(378px, 291px);
+    transform: translate(378px, 291px); }
+  .country.country-position-14-12 {
+    -webkit-transform: translate(378px, 320px);
+    -moz-transform: translate(378px, 320px);
+    -ms-transform: translate(378px, 320px);
+    transform: translate(378px, 320px); }
+  .country.country-position-14-13 {
+    -webkit-transform: translate(378px, 349px);
+    -moz-transform: translate(378px, 349px);
+    -ms-transform: translate(378px, 349px);
+    transform: translate(378px, 349px); }
+  .country.country-position-14-14 {
+    -webkit-transform: translate(378px, 378px);
+    -moz-transform: translate(378px, 378px);
+    -ms-transform: translate(378px, 378px);
+    transform: translate(378px, 378px); }
+  .country.country-position-14-15 {
+    -webkit-transform: translate(378px, 407px);
+    -moz-transform: translate(378px, 407px);
+    -ms-transform: translate(378px, 407px);
+    transform: translate(378px, 407px); }
+  .country.country-position-14-16 {
+    -webkit-transform: translate(378px, 436px);
+    -moz-transform: translate(378px, 436px);
+    -ms-transform: translate(378px, 436px);
+    transform: translate(378px, 436px); }
+  .country.country-position-14-17 {
+    -webkit-transform: translate(378px, 465px);
+    -moz-transform: translate(378px, 465px);
+    -ms-transform: translate(378px, 465px);
+    transform: translate(378px, 465px); }
+  .country.country-position-15-1 {
+    -webkit-transform: translate(407px, 0px);
+    -moz-transform: translate(407px, 0px);
+    -ms-transform: translate(407px, 0px);
+    transform: translate(407px, 0px); }
+  .country.country-position-15-2 {
+    -webkit-transform: translate(407px, 29px);
+    -moz-transform: translate(407px, 29px);
+    -ms-transform: translate(407px, 29px);
+    transform: translate(407px, 29px); }
+  .country.country-position-15-3 {
+    -webkit-transform: translate(407px, 58px);
+    -moz-transform: translate(407px, 58px);
+    -ms-transform: translate(407px, 58px);
+    transform: translate(407px, 58px); }
+  .country.country-position-15-4 {
+    -webkit-transform: translate(407px, 87px);
+    -moz-transform: translate(407px, 87px);
+    -ms-transform: translate(407px, 87px);
+    transform: translate(407px, 87px); }
+  .country.country-position-15-5 {
+    -webkit-transform: translate(407px, 116px);
+    -moz-transform: translate(407px, 116px);
+    -ms-transform: translate(407px, 116px);
+    transform: translate(407px, 116px); }
+  .country.country-position-15-6 {
+    -webkit-transform: translate(407px, 145px);
+    -moz-transform: translate(407px, 145px);
+    -ms-transform: translate(407px, 145px);
+    transform: translate(407px, 145px); }
+  .country.country-position-15-7 {
+    -webkit-transform: translate(407px, 174px);
+    -moz-transform: translate(407px, 174px);
+    -ms-transform: translate(407px, 174px);
+    transform: translate(407px, 174px); }
+  .country.country-position-15-8 {
+    -webkit-transform: translate(407px, 203px);
+    -moz-transform: translate(407px, 203px);
+    -ms-transform: translate(407px, 203px);
+    transform: translate(407px, 203px); }
+  .country.country-position-15-9 {
+    -webkit-transform: translate(407px, 232px);
+    -moz-transform: translate(407px, 232px);
+    -ms-transform: translate(407px, 232px);
+    transform: translate(407px, 232px); }
+  .country.country-position-15-10 {
+    -webkit-transform: translate(407px, 262px);
+    -moz-transform: translate(407px, 262px);
+    -ms-transform: translate(407px, 262px);
+    transform: translate(407px, 262px); }
+  .country.country-position-15-11 {
+    -webkit-transform: translate(407px, 291px);
+    -moz-transform: translate(407px, 291px);
+    -ms-transform: translate(407px, 291px);
+    transform: translate(407px, 291px); }
+  .country.country-position-15-12 {
+    -webkit-transform: translate(407px, 320px);
+    -moz-transform: translate(407px, 320px);
+    -ms-transform: translate(407px, 320px);
+    transform: translate(407px, 320px); }
+  .country.country-position-15-13 {
+    -webkit-transform: translate(407px, 349px);
+    -moz-transform: translate(407px, 349px);
+    -ms-transform: translate(407px, 349px);
+    transform: translate(407px, 349px); }
+  .country.country-position-15-14 {
+    -webkit-transform: translate(407px, 378px);
+    -moz-transform: translate(407px, 378px);
+    -ms-transform: translate(407px, 378px);
+    transform: translate(407px, 378px); }
+  .country.country-position-15-15 {
+    -webkit-transform: translate(407px, 407px);
+    -moz-transform: translate(407px, 407px);
+    -ms-transform: translate(407px, 407px);
+    transform: translate(407px, 407px); }
+  .country.country-position-15-16 {
+    -webkit-transform: translate(407px, 436px);
+    -moz-transform: translate(407px, 436px);
+    -ms-transform: translate(407px, 436px);
+    transform: translate(407px, 436px); }
+  .country.country-position-15-17 {
+    -webkit-transform: translate(407px, 465px);
+    -moz-transform: translate(407px, 465px);
+    -ms-transform: translate(407px, 465px);
+    transform: translate(407px, 465px); }
+  .country.country-position-16-1 {
+    -webkit-transform: translate(436px, 0px);
+    -moz-transform: translate(436px, 0px);
+    -ms-transform: translate(436px, 0px);
+    transform: translate(436px, 0px); }
+  .country.country-position-16-2 {
+    -webkit-transform: translate(436px, 29px);
+    -moz-transform: translate(436px, 29px);
+    -ms-transform: translate(436px, 29px);
+    transform: translate(436px, 29px); }
+  .country.country-position-16-3 {
+    -webkit-transform: translate(436px, 58px);
+    -moz-transform: translate(436px, 58px);
+    -ms-transform: translate(436px, 58px);
+    transform: translate(436px, 58px); }
+  .country.country-position-16-4 {
+    -webkit-transform: translate(436px, 87px);
+    -moz-transform: translate(436px, 87px);
+    -ms-transform: translate(436px, 87px);
+    transform: translate(436px, 87px); }
+  .country.country-position-16-5 {
+    -webkit-transform: translate(436px, 116px);
+    -moz-transform: translate(436px, 116px);
+    -ms-transform: translate(436px, 116px);
+    transform: translate(436px, 116px); }
+  .country.country-position-16-6 {
+    -webkit-transform: translate(436px, 145px);
+    -moz-transform: translate(436px, 145px);
+    -ms-transform: translate(436px, 145px);
+    transform: translate(436px, 145px); }
+  .country.country-position-16-7 {
+    -webkit-transform: translate(436px, 174px);
+    -moz-transform: translate(436px, 174px);
+    -ms-transform: translate(436px, 174px);
+    transform: translate(436px, 174px); }
+  .country.country-position-16-8 {
+    -webkit-transform: translate(436px, 203px);
+    -moz-transform: translate(436px, 203px);
+    -ms-transform: translate(436px, 203px);
+    transform: translate(436px, 203px); }
+  .country.country-position-16-9 {
+    -webkit-transform: translate(436px, 232px);
+    -moz-transform: translate(436px, 232px);
+    -ms-transform: translate(436px, 232px);
+    transform: translate(436px, 232px); }
+  .country.country-position-16-10 {
+    -webkit-transform: translate(436px, 262px);
+    -moz-transform: translate(436px, 262px);
+    -ms-transform: translate(436px, 262px);
+    transform: translate(436px, 262px); }
+  .country.country-position-16-11 {
+    -webkit-transform: translate(436px, 291px);
+    -moz-transform: translate(436px, 291px);
+    -ms-transform: translate(436px, 291px);
+    transform: translate(436px, 291px); }
+  .country.country-position-16-12 {
+    -webkit-transform: translate(436px, 320px);
+    -moz-transform: translate(436px, 320px);
+    -ms-transform: translate(436px, 320px);
+    transform: translate(436px, 320px); }
+  .country.country-position-16-13 {
+    -webkit-transform: translate(436px, 349px);
+    -moz-transform: translate(436px, 349px);
+    -ms-transform: translate(436px, 349px);
+    transform: translate(436px, 349px); }
+  .country.country-position-16-14 {
+    -webkit-transform: translate(436px, 378px);
+    -moz-transform: translate(436px, 378px);
+    -ms-transform: translate(436px, 378px);
+    transform: translate(436px, 378px); }
+  .country.country-position-16-15 {
+    -webkit-transform: translate(436px, 407px);
+    -moz-transform: translate(436px, 407px);
+    -ms-transform: translate(436px, 407px);
+    transform: translate(436px, 407px); }
+  .country.country-position-16-16 {
+    -webkit-transform: translate(436px, 436px);
+    -moz-transform: translate(436px, 436px);
+    -ms-transform: translate(436px, 436px);
+    transform: translate(436px, 436px); }
+  .country.country-position-16-17 {
+    -webkit-transform: translate(436px, 465px);
+    -moz-transform: translate(436px, 465px);
+    -ms-transform: translate(436px, 465px);
+    transform: translate(436px, 465px); }
+  .country.country-position-17-1 {
+    -webkit-transform: translate(465px, 0px);
+    -moz-transform: translate(465px, 0px);
+    -ms-transform: translate(465px, 0px);
+    transform: translate(465px, 0px); }
+  .country.country-position-17-2 {
+    -webkit-transform: translate(465px, 29px);
+    -moz-transform: translate(465px, 29px);
+    -ms-transform: translate(465px, 29px);
+    transform: translate(465px, 29px); }
+  .country.country-position-17-3 {
+    -webkit-transform: translate(465px, 58px);
+    -moz-transform: translate(465px, 58px);
+    -ms-transform: translate(465px, 58px);
+    transform: translate(465px, 58px); }
+  .country.country-position-17-4 {
+    -webkit-transform: translate(465px, 87px);
+    -moz-transform: translate(465px, 87px);
+    -ms-transform: translate(465px, 87px);
+    transform: translate(465px, 87px); }
+  .country.country-position-17-5 {
+    -webkit-transform: translate(465px, 116px);
+    -moz-transform: translate(465px, 116px);
+    -ms-transform: translate(465px, 116px);
+    transform: translate(465px, 116px); }
+  .country.country-position-17-6 {
+    -webkit-transform: translate(465px, 145px);
+    -moz-transform: translate(465px, 145px);
+    -ms-transform: translate(465px, 145px);
+    transform: translate(465px, 145px); }
+  .country.country-position-17-7 {
+    -webkit-transform: translate(465px, 174px);
+    -moz-transform: translate(465px, 174px);
+    -ms-transform: translate(465px, 174px);
+    transform: translate(465px, 174px); }
+  .country.country-position-17-8 {
+    -webkit-transform: translate(465px, 203px);
+    -moz-transform: translate(465px, 203px);
+    -ms-transform: translate(465px, 203px);
+    transform: translate(465px, 203px); }
+  .country.country-position-17-9 {
+    -webkit-transform: translate(465px, 232px);
+    -moz-transform: translate(465px, 232px);
+    -ms-transform: translate(465px, 232px);
+    transform: translate(465px, 232px); }
+  .country.country-position-17-10 {
+    -webkit-transform: translate(465px, 262px);
+    -moz-transform: translate(465px, 262px);
+    -ms-transform: translate(465px, 262px);
+    transform: translate(465px, 262px); }
+  .country.country-position-17-11 {
+    -webkit-transform: translate(465px, 291px);
+    -moz-transform: translate(465px, 291px);
+    -ms-transform: translate(465px, 291px);
+    transform: translate(465px, 291px); }
+  .country.country-position-17-12 {
+    -webkit-transform: translate(465px, 320px);
+    -moz-transform: translate(465px, 320px);
+    -ms-transform: translate(465px, 320px);
+    transform: translate(465px, 320px); }
+  .country.country-position-17-13 {
+    -webkit-transform: translate(465px, 349px);
+    -moz-transform: translate(465px, 349px);
+    -ms-transform: translate(465px, 349px);
+    transform: translate(465px, 349px); }
+  .country.country-position-17-14 {
+    -webkit-transform: translate(465px, 378px);
+    -moz-transform: translate(465px, 378px);
+    -ms-transform: translate(465px, 378px);
+    transform: translate(465px, 378px); }
+  .country.country-position-17-15 {
+    -webkit-transform: translate(465px, 407px);
+    -moz-transform: translate(465px, 407px);
+    -ms-transform: translate(465px, 407px);
+    transform: translate(465px, 407px); }
+  .country.country-position-17-16 {
+    -webkit-transform: translate(465px, 436px);
+    -moz-transform: translate(465px, 436px);
+    -ms-transform: translate(465px, 436px);
+    transform: translate(465px, 436px); }
+  .country.country-position-17-17 {
+    -webkit-transform: translate(465px, 465px);
+    -moz-transform: translate(465px, 465px);
+    -ms-transform: translate(465px, 465px);
+    transform: translate(465px, 465px); }
+
+.country.AF {
+  background-image: url("../assets/flags/AF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AX {
+  background-image: url("../assets/flags/AX.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AL {
+  background-image: url("../assets/flags/AL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.DZ {
+  background-image: url("../assets/flags/DZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AS {
+  background-image: url("../assets/flags/AS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AD {
+  background-image: url("../assets/flags/AD.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AO {
+  background-image: url("../assets/flags/AO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AI {
+  background-image: url("../assets/flags/AI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AQ {
+  background-image: url("../assets/flags/AQ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AG {
+  background-image: url("../assets/flags/AG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AR {
+  background-image: url("../assets/flags/AR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AM {
+  background-image: url("../assets/flags/AM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AW {
+  background-image: url("../assets/flags/AW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AU {
+  background-image: url("../assets/flags/AU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AT {
+  background-image: url("../assets/flags/AT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AZ {
+  background-image: url("../assets/flags/AZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BS {
+  background-image: url("../assets/flags/BS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BH {
+  background-image: url("../assets/flags/BH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BD {
+  background-image: url("../assets/flags/BD.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BB {
+  background-image: url("../assets/flags/BB.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BY {
+  background-image: url("../assets/flags/BY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BE {
+  background-image: url("../assets/flags/BE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BZ {
+  background-image: url("../assets/flags/BZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BJ {
+  background-image: url("../assets/flags/BJ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BM {
+  background-image: url("../assets/flags/BM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BT {
+  background-image: url("../assets/flags/BT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BO {
+  background-image: url("../assets/flags/BO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BQ {
+  background-image: url("../assets/flags/BQ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BA {
+  background-image: url("../assets/flags/BA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BW {
+  background-image: url("../assets/flags/BW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BV {
+  background-image: url("../assets/flags/BV.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BR {
+  background-image: url("../assets/flags/BR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IO {
+  background-image: url("../assets/flags/IO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BN {
+  background-image: url("../assets/flags/BN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BG {
+  background-image: url("../assets/flags/BG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BF {
+  background-image: url("../assets/flags/BF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BI {
+  background-image: url("../assets/flags/BI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KH {
+  background-image: url("../assets/flags/KH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CM {
+  background-image: url("../assets/flags/CM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CA {
+  background-image: url("../assets/flags/CA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CV {
+  background-image: url("../assets/flags/CV.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KY {
+  background-image: url("../assets/flags/KY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CF {
+  background-image: url("../assets/flags/CF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TD {
+  background-image: url("../assets/flags/TD.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CL {
+  background-image: url("../assets/flags/CL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CN {
+  background-image: url("../assets/flags/CN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CX {
+  background-image: url("../assets/flags/CX.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CC {
+  background-image: url("../assets/flags/CC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CO {
+  background-image: url("../assets/flags/CO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KM {
+  background-image: url("../assets/flags/KM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CG {
+  background-image: url("../assets/flags/CG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CD {
+  background-image: url("../assets/flags/CD.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CK {
+  background-image: url("../assets/flags/CK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CR {
+  background-image: url("../assets/flags/CR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CI {
+  background-image: url("../assets/flags/CI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.HR {
+  background-image: url("../assets/flags/HR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CU {
+  background-image: url("../assets/flags/CU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CW {
+  background-image: url("../assets/flags/CW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CY {
+  background-image: url("../assets/flags/CY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CZ {
+  background-image: url("../assets/flags/CZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.DK {
+  background-image: url("../assets/flags/DK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.DJ {
+  background-image: url("../assets/flags/DJ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.DM {
+  background-image: url("../assets/flags/DM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.DO {
+  background-image: url("../assets/flags/DO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.EC {
+  background-image: url("../assets/flags/EC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.EG {
+  background-image: url("../assets/flags/EG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SV {
+  background-image: url("../assets/flags/SV.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GQ {
+  background-image: url("../assets/flags/GQ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ER {
+  background-image: url("../assets/flags/ER.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.EE {
+  background-image: url("../assets/flags/EE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ET {
+  background-image: url("../assets/flags/ET.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.FK {
+  background-image: url("../assets/flags/FK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.FO {
+  background-image: url("../assets/flags/FO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.FJ {
+  background-image: url("../assets/flags/FJ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.FI {
+  background-image: url("../assets/flags/FI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.FR {
+  background-image: url("../assets/flags/FR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GF {
+  background-image: url("../assets/flags/GF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PF {
+  background-image: url("../assets/flags/PF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TF {
+  background-image: url("../assets/flags/TF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GA {
+  background-image: url("../assets/flags/GA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GM {
+  background-image: url("../assets/flags/GM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GE {
+  background-image: url("../assets/flags/GE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.DE {
+  background-image: url("../assets/flags/DE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GH {
+  background-image: url("../assets/flags/GH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GI {
+  background-image: url("../assets/flags/GI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GR {
+  background-image: url("../assets/flags/GR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GL {
+  background-image: url("../assets/flags/GL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GD {
+  background-image: url("../assets/flags/GD.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GP {
+  background-image: url("../assets/flags/GP.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GU {
+  background-image: url("../assets/flags/GU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GT {
+  background-image: url("../assets/flags/GT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GG {
+  background-image: url("../assets/flags/GG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GN {
+  background-image: url("../assets/flags/GN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GW {
+  background-image: url("../assets/flags/GW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GY {
+  background-image: url("../assets/flags/GY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.HT {
+  background-image: url("../assets/flags/HT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.HM {
+  background-image: url("../assets/flags/HM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.VA {
+  background-image: url("../assets/flags/VA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.HN {
+  background-image: url("../assets/flags/HN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.HK {
+  background-image: url("../assets/flags/HK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.HU {
+  background-image: url("../assets/flags/HU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IS {
+  background-image: url("../assets/flags/IS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IN {
+  background-image: url("../assets/flags/IN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ID {
+  background-image: url("../assets/flags/ID.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IR {
+  background-image: url("../assets/flags/IR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IQ {
+  background-image: url("../assets/flags/IQ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IE {
+  background-image: url("../assets/flags/IE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IM {
+  background-image: url("../assets/flags/IM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IL {
+  background-image: url("../assets/flags/IL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.IT {
+  background-image: url("../assets/flags/IT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.JM {
+  background-image: url("../assets/flags/JM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.JP {
+  background-image: url("../assets/flags/JP.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.JE {
+  background-image: url("../assets/flags/JE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.JO {
+  background-image: url("../assets/flags/JO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KZ {
+  background-image: url("../assets/flags/KZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KE {
+  background-image: url("../assets/flags/KE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KI {
+  background-image: url("../assets/flags/KI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KP {
+  background-image: url("../assets/flags/KP.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KR {
+  background-image: url("../assets/flags/KR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KW {
+  background-image: url("../assets/flags/KW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KG {
+  background-image: url("../assets/flags/KG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LA {
+  background-image: url("../assets/flags/LA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LV {
+  background-image: url("../assets/flags/LV.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LB {
+  background-image: url("../assets/flags/LB.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LS {
+  background-image: url("../assets/flags/LS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LR {
+  background-image: url("../assets/flags/LR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LY {
+  background-image: url("../assets/flags/LY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LI {
+  background-image: url("../assets/flags/LI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LT {
+  background-image: url("../assets/flags/LT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LU {
+  background-image: url("../assets/flags/LU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MO {
+  background-image: url("../assets/flags/MO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MK {
+  background-image: url("../assets/flags/MK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MG {
+  background-image: url("../assets/flags/MG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MW {
+  background-image: url("../assets/flags/MW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MY {
+  background-image: url("../assets/flags/MY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MV {
+  background-image: url("../assets/flags/MV.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ML {
+  background-image: url("../assets/flags/ML.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MT {
+  background-image: url("../assets/flags/MT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MH {
+  background-image: url("../assets/flags/MH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MQ {
+  background-image: url("../assets/flags/MQ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MR {
+  background-image: url("../assets/flags/MR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MU {
+  background-image: url("../assets/flags/MU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.YT {
+  background-image: url("../assets/flags/YT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MX {
+  background-image: url("../assets/flags/MX.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.FM {
+  background-image: url("../assets/flags/FM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MD {
+  background-image: url("../assets/flags/MD.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MC {
+  background-image: url("../assets/flags/MC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MN {
+  background-image: url("../assets/flags/MN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ME {
+  background-image: url("../assets/flags/ME.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MS {
+  background-image: url("../assets/flags/MS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MA {
+  background-image: url("../assets/flags/MA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MZ {
+  background-image: url("../assets/flags/MZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MM {
+  background-image: url("../assets/flags/MM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NA {
+  background-image: url("../assets/flags/NA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NR {
+  background-image: url("../assets/flags/NR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NP {
+  background-image: url("../assets/flags/NP.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NL {
+  background-image: url("../assets/flags/NL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NC {
+  background-image: url("../assets/flags/NC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NZ {
+  background-image: url("../assets/flags/NZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NI {
+  background-image: url("../assets/flags/NI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NE {
+  background-image: url("../assets/flags/NE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NG {
+  background-image: url("../assets/flags/NG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NU {
+  background-image: url("../assets/flags/NU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NF {
+  background-image: url("../assets/flags/NF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MP {
+  background-image: url("../assets/flags/MP.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.NO {
+  background-image: url("../assets/flags/NO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.OM {
+  background-image: url("../assets/flags/OM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PK {
+  background-image: url("../assets/flags/PK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PW {
+  background-image: url("../assets/flags/PW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PS {
+  background-image: url("../assets/flags/PS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PA {
+  background-image: url("../assets/flags/PA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PG {
+  background-image: url("../assets/flags/PG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PY {
+  background-image: url("../assets/flags/PY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PE {
+  background-image: url("../assets/flags/PE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PH {
+  background-image: url("../assets/flags/PH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PN {
+  background-image: url("../assets/flags/PN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PL {
+  background-image: url("../assets/flags/PL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PT {
+  background-image: url("../assets/flags/PT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PR {
+  background-image: url("../assets/flags/PR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.QA {
+  background-image: url("../assets/flags/QA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.RE {
+  background-image: url("../assets/flags/RE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.RO {
+  background-image: url("../assets/flags/RO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.RU {
+  background-image: url("../assets/flags/RU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.RW {
+  background-image: url("../assets/flags/RW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.BL {
+  background-image: url("../assets/flags/BL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SH {
+  background-image: url("../assets/flags/SH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.KN {
+  background-image: url("../assets/flags/KN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LC {
+  background-image: url("../assets/flags/LC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.MF {
+  background-image: url("../assets/flags/MF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.PM {
+  background-image: url("../assets/flags/PM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.VC {
+  background-image: url("../assets/flags/VC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.WS {
+  background-image: url("../assets/flags/WS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SM {
+  background-image: url("../assets/flags/SM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ST {
+  background-image: url("../assets/flags/ST.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SA {
+  background-image: url("../assets/flags/SA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SN {
+  background-image: url("../assets/flags/SN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.RS {
+  background-image: url("../assets/flags/RS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SC {
+  background-image: url("../assets/flags/SC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SL {
+  background-image: url("../assets/flags/SL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SG {
+  background-image: url("../assets/flags/SG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SX {
+  background-image: url("../assets/flags/SX.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SK {
+  background-image: url("../assets/flags/SK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SI {
+  background-image: url("../assets/flags/SI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SB {
+  background-image: url("../assets/flags/SB.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SO {
+  background-image: url("../assets/flags/SO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ZA {
+  background-image: url("../assets/flags/ZA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GS {
+  background-image: url("../assets/flags/GS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SS {
+  background-image: url("../assets/flags/SS.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ES {
+  background-image: url("../assets/flags/ES.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.LK {
+  background-image: url("../assets/flags/LK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SD {
+  background-image: url("../assets/flags/SD.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SR {
+  background-image: url("../assets/flags/SR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SJ {
+  background-image: url("../assets/flags/SJ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SZ {
+  background-image: url("../assets/flags/SZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SE {
+  background-image: url("../assets/flags/SE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.CH {
+  background-image: url("../assets/flags/CH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.SY {
+  background-image: url("../assets/flags/SY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TW {
+  background-image: url("../assets/flags/TW.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TJ {
+  background-image: url("../assets/flags/TJ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TZ {
+  background-image: url("../assets/flags/TZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TH {
+  background-image: url("../assets/flags/TH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TL {
+  background-image: url("../assets/flags/TL.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TG {
+  background-image: url("../assets/flags/TG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TK {
+  background-image: url("../assets/flags/TK.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TO {
+  background-image: url("../assets/flags/TO.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TT {
+  background-image: url("../assets/flags/TT.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TN {
+  background-image: url("../assets/flags/TN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TR {
+  background-image: url("../assets/flags/TR.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TM {
+  background-image: url("../assets/flags/TM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TC {
+  background-image: url("../assets/flags/TC.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.TV {
+  background-image: url("../assets/flags/TV.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.UG {
+  background-image: url("../assets/flags/UG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.UA {
+  background-image: url("../assets/flags/UA.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.AE {
+  background-image: url("../assets/flags/AE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.GB {
+  background-image: url("../assets/flags/GB.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.US {
+  background-image: url("../assets/flags/US.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.UM {
+  background-image: url("../assets/flags/UM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.UY {
+  background-image: url("../assets/flags/UY.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.UZ {
+  background-image: url("../assets/flags/UZ.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.VU {
+  background-image: url("../assets/flags/VU.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.VE {
+  background-image: url("../assets/flags/VE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.VN {
+  background-image: url("../assets/flags/VN.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.VG {
+  background-image: url("../assets/flags/VG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.VI {
+  background-image: url("../assets/flags/VI.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.WF {
+  background-image: url("../assets/flags/WF.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.EH {
+  background-image: url("../assets/flags/EH.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.YE {
+  background-image: url("../assets/flags/YE.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ZM {
+  background-image: url("../assets/flags/ZM.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ZWaf {
+  background-image: url("../assets/flags/ZWaf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ax {
+  background-image: url("../assets/flags/ax.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.al {
+  background-image: url("../assets/flags/al.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.dz {
+  background-image: url("../assets/flags/dz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.as {
+  background-image: url("../assets/flags/as.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ad {
+  background-image: url("../assets/flags/ad.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ao {
+  background-image: url("../assets/flags/ao.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ai {
+  background-image: url("../assets/flags/ai.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.aq {
+  background-image: url("../assets/flags/aq.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ag {
+  background-image: url("../assets/flags/ag.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ar {
+  background-image: url("../assets/flags/ar.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.am {
+  background-image: url("../assets/flags/am.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.aw {
+  background-image: url("../assets/flags/aw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.au {
+  background-image: url("../assets/flags/au.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.at {
+  background-image: url("../assets/flags/at.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.az {
+  background-image: url("../assets/flags/az.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bs {
+  background-image: url("../assets/flags/bs.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bh {
+  background-image: url("../assets/flags/bh.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bd {
+  background-image: url("../assets/flags/bd.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bb {
+  background-image: url("../assets/flags/bb.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.by {
+  background-image: url("../assets/flags/by.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.be {
+  background-image: url("../assets/flags/be.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bz {
+  background-image: url("../assets/flags/bz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bj {
+  background-image: url("../assets/flags/bj.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bm {
+  background-image: url("../assets/flags/bm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bt {
+  background-image: url("../assets/flags/bt.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bo {
+  background-image: url("../assets/flags/bo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bq {
+  background-image: url("../assets/flags/bq.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ba {
+  background-image: url("../assets/flags/ba.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bw {
+  background-image: url("../assets/flags/bw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bv {
+  background-image: url("../assets/flags/bv.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.br {
+  background-image: url("../assets/flags/br.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.io {
+  background-image: url("../assets/flags/io.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bn {
+  background-image: url("../assets/flags/bn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bg {
+  background-image: url("../assets/flags/bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bf {
+  background-image: url("../assets/flags/bf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bi {
+  background-image: url("../assets/flags/bi.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.kh {
+  background-image: url("../assets/flags/kh.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cm {
+  background-image: url("../assets/flags/cm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ca {
+  background-image: url("../assets/flags/ca.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cv {
+  background-image: url("../assets/flags/cv.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ky {
+  background-image: url("../assets/flags/ky.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cf {
+  background-image: url("../assets/flags/cf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.td {
+  background-image: url("../assets/flags/td.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cl {
+  background-image: url("../assets/flags/cl.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cn {
+  background-image: url("../assets/flags/cn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cx {
+  background-image: url("../assets/flags/cx.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cc {
+  background-image: url("../assets/flags/cc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.co {
+  background-image: url("../assets/flags/co.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.km {
+  background-image: url("../assets/flags/km.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cg {
+  background-image: url("../assets/flags/cg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cd {
+  background-image: url("../assets/flags/cd.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ck {
+  background-image: url("../assets/flags/ck.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cr {
+  background-image: url("../assets/flags/cr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ci {
+  background-image: url("../assets/flags/ci.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.hr {
+  background-image: url("../assets/flags/hr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cu {
+  background-image: url("../assets/flags/cu.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cw {
+  background-image: url("../assets/flags/cw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cy {
+  background-image: url("../assets/flags/cy.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.cz {
+  background-image: url("../assets/flags/cz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.dk {
+  background-image: url("../assets/flags/dk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.dj {
+  background-image: url("../assets/flags/dj.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.dm {
+  background-image: url("../assets/flags/dm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.do {
+  background-image: url("../assets/flags/do.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ec {
+  background-image: url("../assets/flags/ec.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.eg {
+  background-image: url("../assets/flags/eg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sv {
+  background-image: url("../assets/flags/sv.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gq {
+  background-image: url("../assets/flags/gq.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.er {
+  background-image: url("../assets/flags/er.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ee {
+  background-image: url("../assets/flags/ee.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.et {
+  background-image: url("../assets/flags/et.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.fk {
+  background-image: url("../assets/flags/fk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.fo {
+  background-image: url("../assets/flags/fo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.fj {
+  background-image: url("../assets/flags/fj.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.fi {
+  background-image: url("../assets/flags/fi.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.fr {
+  background-image: url("../assets/flags/fr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gf {
+  background-image: url("../assets/flags/gf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pf {
+  background-image: url("../assets/flags/pf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tf {
+  background-image: url("../assets/flags/tf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ga {
+  background-image: url("../assets/flags/ga.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gm {
+  background-image: url("../assets/flags/gm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ge {
+  background-image: url("../assets/flags/ge.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.de {
+  background-image: url("../assets/flags/de.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gh {
+  background-image: url("../assets/flags/gh.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gi {
+  background-image: url("../assets/flags/gi.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gr {
+  background-image: url("../assets/flags/gr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gl {
+  background-image: url("../assets/flags/gl.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gd {
+  background-image: url("../assets/flags/gd.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gp {
+  background-image: url("../assets/flags/gp.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gu {
+  background-image: url("../assets/flags/gu.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gt {
+  background-image: url("../assets/flags/gt.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gg {
+  background-image: url("../assets/flags/gg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gn {
+  background-image: url("../assets/flags/gn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gw {
+  background-image: url("../assets/flags/gw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gy {
+  background-image: url("../assets/flags/gy.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ht {
+  background-image: url("../assets/flags/ht.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.hm {
+  background-image: url("../assets/flags/hm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.va {
+  background-image: url("../assets/flags/va.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.hn {
+  background-image: url("../assets/flags/hn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.hk {
+  background-image: url("../assets/flags/hk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.hu {
+  background-image: url("../assets/flags/hu.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.is {
+  background-image: url("../assets/flags/is.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.in {
+  background-image: url("../assets/flags/in.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.id {
+  background-image: url("../assets/flags/id.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ir {
+  background-image: url("../assets/flags/ir.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.iq {
+  background-image: url("../assets/flags/iq.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ie {
+  background-image: url("../assets/flags/ie.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.im {
+  background-image: url("../assets/flags/im.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.il {
+  background-image: url("../assets/flags/il.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.it {
+  background-image: url("../assets/flags/it.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.jm {
+  background-image: url("../assets/flags/jm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.jp {
+  background-image: url("../assets/flags/jp.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.je {
+  background-image: url("../assets/flags/je.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.jo {
+  background-image: url("../assets/flags/jo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.kz {
+  background-image: url("../assets/flags/kz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ke {
+  background-image: url("../assets/flags/ke.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ki {
+  background-image: url("../assets/flags/ki.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.kp {
+  background-image: url("../assets/flags/kp.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.kr {
+  background-image: url("../assets/flags/kr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.kw {
+  background-image: url("../assets/flags/kw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.kg {
+  background-image: url("../assets/flags/kg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.la {
+  background-image: url("../assets/flags/la.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.lv {
+  background-image: url("../assets/flags/lv.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.lb {
+  background-image: url("../assets/flags/lb.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ls {
+  background-image: url("../assets/flags/ls.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.lr {
+  background-image: url("../assets/flags/lr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ly {
+  background-image: url("../assets/flags/ly.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.li {
+  background-image: url("../assets/flags/li.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.lt {
+  background-image: url("../assets/flags/lt.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.lu {
+  background-image: url("../assets/flags/lu.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mo {
+  background-image: url("../assets/flags/mo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mk {
+  background-image: url("../assets/flags/mk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mg {
+  background-image: url("../assets/flags/mg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mw {
+  background-image: url("../assets/flags/mw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.my {
+  background-image: url("../assets/flags/my.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mv {
+  background-image: url("../assets/flags/mv.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ml {
+  background-image: url("../assets/flags/ml.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mt {
+  background-image: url("../assets/flags/mt.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mh {
+  background-image: url("../assets/flags/mh.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mq {
+  background-image: url("../assets/flags/mq.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mr {
+  background-image: url("../assets/flags/mr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mu {
+  background-image: url("../assets/flags/mu.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.yt {
+  background-image: url("../assets/flags/yt.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mx {
+  background-image: url("../assets/flags/mx.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.fm {
+  background-image: url("../assets/flags/fm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.md {
+  background-image: url("../assets/flags/md.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mc {
+  background-image: url("../assets/flags/mc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mn {
+  background-image: url("../assets/flags/mn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.me {
+  background-image: url("../assets/flags/me.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ms {
+  background-image: url("../assets/flags/ms.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ma {
+  background-image: url("../assets/flags/ma.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mz {
+  background-image: url("../assets/flags/mz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mm {
+  background-image: url("../assets/flags/mm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.na {
+  background-image: url("../assets/flags/na.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.nr {
+  background-image: url("../assets/flags/nr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.np {
+  background-image: url("../assets/flags/np.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.nl {
+  background-image: url("../assets/flags/nl.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.nc {
+  background-image: url("../assets/flags/nc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.nz {
+  background-image: url("../assets/flags/nz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ni {
+  background-image: url("../assets/flags/ni.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ne {
+  background-image: url("../assets/flags/ne.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ng {
+  background-image: url("../assets/flags/ng.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.nu {
+  background-image: url("../assets/flags/nu.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.nf {
+  background-image: url("../assets/flags/nf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mp {
+  background-image: url("../assets/flags/mp.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.no {
+  background-image: url("../assets/flags/no.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.om {
+  background-image: url("../assets/flags/om.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pk {
+  background-image: url("../assets/flags/pk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pw {
+  background-image: url("../assets/flags/pw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ps {
+  background-image: url("../assets/flags/ps.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pa {
+  background-image: url("../assets/flags/pa.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pg {
+  background-image: url("../assets/flags/pg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.py {
+  background-image: url("../assets/flags/py.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pe {
+  background-image: url("../assets/flags/pe.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ph {
+  background-image: url("../assets/flags/ph.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pn {
+  background-image: url("../assets/flags/pn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pl {
+  background-image: url("../assets/flags/pl.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pt {
+  background-image: url("../assets/flags/pt.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pr {
+  background-image: url("../assets/flags/pr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.qa {
+  background-image: url("../assets/flags/qa.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.re {
+  background-image: url("../assets/flags/re.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ro {
+  background-image: url("../assets/flags/ro.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ru {
+  background-image: url("../assets/flags/ru.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.rw {
+  background-image: url("../assets/flags/rw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.bl {
+  background-image: url("../assets/flags/bl.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sh {
+  background-image: url("../assets/flags/sh.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.kn {
+  background-image: url("../assets/flags/kn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.lc {
+  background-image: url("../assets/flags/lc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.mf {
+  background-image: url("../assets/flags/mf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.pm {
+  background-image: url("../assets/flags/pm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.vc {
+  background-image: url("../assets/flags/vc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ws {
+  background-image: url("../assets/flags/ws.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sm {
+  background-image: url("../assets/flags/sm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.st {
+  background-image: url("../assets/flags/st.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sa {
+  background-image: url("../assets/flags/sa.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sn {
+  background-image: url("../assets/flags/sn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.rs {
+  background-image: url("../assets/flags/rs.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sc {
+  background-image: url("../assets/flags/sc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sl {
+  background-image: url("../assets/flags/sl.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sg {
+  background-image: url("../assets/flags/sg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sx {
+  background-image: url("../assets/flags/sx.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sk {
+  background-image: url("../assets/flags/sk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.si {
+  background-image: url("../assets/flags/si.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sb {
+  background-image: url("../assets/flags/sb.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.so {
+  background-image: url("../assets/flags/so.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.za {
+  background-image: url("../assets/flags/za.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gs {
+  background-image: url("../assets/flags/gs.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ss {
+  background-image: url("../assets/flags/ss.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.es {
+  background-image: url("../assets/flags/es.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.lk {
+  background-image: url("../assets/flags/lk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sd {
+  background-image: url("../assets/flags/sd.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sr {
+  background-image: url("../assets/flags/sr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sj {
+  background-image: url("../assets/flags/sj.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sz {
+  background-image: url("../assets/flags/sz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.se {
+  background-image: url("../assets/flags/se.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ch {
+  background-image: url("../assets/flags/ch.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.sy {
+  background-image: url("../assets/flags/sy.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tw {
+  background-image: url("../assets/flags/tw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tj {
+  background-image: url("../assets/flags/tj.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tz {
+  background-image: url("../assets/flags/tz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.th {
+  background-image: url("../assets/flags/th.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tl {
+  background-image: url("../assets/flags/tl.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tg {
+  background-image: url("../assets/flags/tg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tk {
+  background-image: url("../assets/flags/tk.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.to {
+  background-image: url("../assets/flags/to.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tt {
+  background-image: url("../assets/flags/tt.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tn {
+  background-image: url("../assets/flags/tn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tr {
+  background-image: url("../assets/flags/tr.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tm {
+  background-image: url("../assets/flags/tm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tc {
+  background-image: url("../assets/flags/tc.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.tv {
+  background-image: url("../assets/flags/tv.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ug {
+  background-image: url("../assets/flags/ug.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ua {
+  background-image: url("../assets/flags/ua.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ae {
+  background-image: url("../assets/flags/ae.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.gb {
+  background-image: url("../assets/flags/gb.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.us {
+  background-image: url("../assets/flags/us.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.um {
+  background-image: url("../assets/flags/um.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.uy {
+  background-image: url("../assets/flags/uy.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.uz {
+  background-image: url("../assets/flags/uz.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.vu {
+  background-image: url("../assets/flags/vu.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ve {
+  background-image: url("../assets/flags/ve.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.vn {
+  background-image: url("../assets/flags/vn.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.vg {
+  background-image: url("../assets/flags/vg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.vi {
+  background-image: url("../assets/flags/vi.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.wf {
+  background-image: url("../assets/flags/wf.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.eh {
+  background-image: url("../assets/flags/eh.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.ye {
+  background-image: url("../assets/flags/ye.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.zm {
+  background-image: url("../assets/flags/zm.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.country.zw {
+  background-image: url("../assets/flags/zw.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+@keyframes bounce-up {
+  from {
+    transform: translateY(0px); }
+  to {
+    transform: translateY(-5px); } }
+@keyframes bounce-upper-right {
+  from {
+    transform: translate(0px, 0px); }
+  to {
+    transform: translate(5px, -5px); } }
+@keyframes bounce-right {
+  from {
+    transform: translateX(0px); }
+  to {
+    transform: translateX(5px); } }
+@keyframes bounce-lower-right {
+  from {
+    transform: translate(0px, 0px); }
+  to {
+    transform: translate(5px, 5px); } }
+@keyframes bounce-down {
+  from {
+    transform: translateY(0px); }
+  to {
+    transform: translateY(5px); } }
+@keyframes bounce-lower-left {
+  from {
+    transform: translate(0px, 0px); }
+  to {
+    transform: translate(-5px, 5px); } }
+@keyframes bounce-left {
+  from {
+    transform: translateX(0px); }
+  to {
+    transform: translateX(-5px); } }
+@keyframes bounce-upper-left {
+  from {
+    transform: translate(0px, 0px); }
+  to {
+    transform: translate(-5px, -5px); } }
+.indicator {
+  display: inline;
+  visibility: hidden;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  color: #337ab7; }
+  .indicator.arrow-upper-left, .indicator.arrow-up, .indicator.arrow-upper-right {
+    top: -25px; }
+  .indicator.arrow-left, .indicator.arrow-right {
+    top: 235px; }
+  .indicator.arrow-lower-left, .indicator.arrow-down, .indicator.arrow-lower-right {
+    top: 495px; }
+  .indicator.arrow-upper-left, .indicator.arrow-left, .indicator.arrow-lower-left {
+    left: -25px; }
+  .indicator.arrow-up, .indicator.arrow-down {
+    left: 235px; }
+  .indicator.arrow-upper-right, .indicator.arrow-right, .indicator.arrow-lower-right {
+    left: 495px; }
+
+.arrow-lower-right.indicator {
+  animation: bounce-lower-right 0.5s ease-in infinite alternate; }
+.arrow-lower-right span {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+.arrow-down.indicator {
+  animation: bounce-down 0.5s ease-in infinite alternate; }
+.arrow-down span {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.arrow-lower-left.indicator {
+  animation: bounce-lower-left 0.5s ease-in infinite alternate; }
+.arrow-lower-left span {
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg); }
+
+.arrow-left.indicator {
+  animation: bounce-left 0.5s ease-in infinite alternate; }
+.arrow-left span {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+.arrow-upper-left.indicator {
+  animation: bounce-upper-left 0.5s ease-in infinite alternate; }
+.arrow-upper-left span {
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg); }
+
+.arrow-up.indicator {
+  animation: bounce-up 0.5s ease-in infinite alternate; }
+.arrow-up span {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+.arrow-upper-right.indicator {
+  animation: bounce-upper-right 0.5s ease-in infinite alternate; }
+.arrow-upper-right span {
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  transform: rotate(315deg); }
+
+.arrow-right.indicator {
+  animation: bounce-right 0.5s ease-in infinite alternate; }
+.arrow-right span {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg); }
+
+.current-event-alert .arrow {
+  margin-right: 5px; }
+
+/*# sourceMappingURL=main.css.map */

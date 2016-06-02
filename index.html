@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Economic Simulator</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="modal-container">
+            <div class="modal fade country-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Choose your countries</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group country-selector player">
+                                    <label>Your country</label>
+                                    <select class="form-control"></select>
+                                </div>
+                                <div class="form-group country-selector opponent">
+                                    <label>Opponent's country</label>
+                                    <select class="form-control"></select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-ok-sign"></span> Go!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="left-menu col-md-4 col-sm-3 col-xs-12">
+            <h1>Controls</h1>
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-default economic-indicator-button" data-dismiss="modal">Economic indicator</button>
+                <button type="button" class="btn btn-default current-event-button" data-dismiss="modal">Current event</button>
+                <button type="button" class="btn btn-default economic-policy-button" data-dismiss="modal">Economic policy</button>
+            </div>
+            <br />
+            <div class="alert alert-info current-event-alert" style="display:none">
+                <button type="button" class="close"><span>&times;</span></button>
+                <div class="h4"><span class="arrow"><span class="glyphicon glyphicon-triangle-right "></span></span><span class="heading text-capitalize"></span></div>
+                <p></p>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-9 col-xs-12">
+            <div class="board-wrapper">
+                <div class="board-container"></div>
+                <div class="country-container"></div>
+                <div class="indicator-container">
+                    <div class="indicator arrow-up"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                    <div class="indicator arrow-upper-right"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                    <div class="indicator arrow-right"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                    <div class="indicator arrow-lower-right"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                    <div class="indicator arrow-down"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                    <div class="indicator arrow-lower-left"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                    <div class="indicator arrow-left"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                    <div class="indicator arrow-upper-left"><span class="glyphicon glyphicon-triangle-right "></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="src/utilities.js"></script>
+    <script type="text/javascript" src="src/country.js"></script>
+    <script type="text/javascript" src="src/grid.js"></script>
+    <script type="text/javascript" src="src/economy.js"></script>
+    <script type="text/javascript" src="src/game.js"></script>
+    <script type="text/javascript" src="src/script.js"></script>
+</body>
+
+</html>

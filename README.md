@@ -1,0 +1,1 @@
+Based on [The Global Economics Game](http://www.worldgameofeconomics.com/) by  Ronald W. Schuelke.
